@@ -1,10 +1,10 @@
 <template>
   <main>
+    <!-- <div class="deleteModal" v-if="display">
+      <h2>Teste</h2>
+    </div> -->
     <Header />
     <div class="homeContent flexColumn">
-    <Dialog header="Header" :visible.sync="display"> 
-      asdasdasdad  
-    </Dialog>
       <div
         class="equipment flexRowCenter"
         v-for="(device, index) in equipments"
@@ -68,6 +68,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.deleteModal{
+  height: 200px;
+  width: 200px;
+  background: #000;
+}
+
 .homeContent {
   height: auto;
   padding: 60px 40px;
