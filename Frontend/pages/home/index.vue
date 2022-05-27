@@ -1,8 +1,18 @@
 <template>
   <main>
-    <!-- <div class="deleteModal" v-if="display">
-      <h2>Teste</h2>
-    </div> -->
+    <div class="modal-overlay flexColumnCenter" v-if="display">
+      <div class="modal flexColumn">
+        <div class="close" @click="closeModal()">
+          <p class="icon">X</p>
+        </div>
+        <h2>Exclusão de equipamento</h2>
+        <p>
+          Atenção! tem certeza que deseja excluir o equipamento? essa ação não
+          podera ser desfeita.
+        </p>
+        <button>excluir</button>
+      </div>
+    </div>
     <Header />
     <div class="homeContent flexColumn">
       <div
@@ -23,7 +33,7 @@
           <p class="description">{{ device.description }}</p>
           <div class="options flexRowBottom">
             <img src="comentario.png" alt="" class="option" />
-            <img src="deletar.png" alt="" class="option" @click="openModal()"/>
+            <img src="deletar.png" alt="" class="option" @click="openModal()" />
           </div>
         </div>
       </div>
@@ -54,12 +64,12 @@ export default {
           console.log(err);
         });
     },
-    openModal(){
-      this.display = true
+    openModal() {
+      this.display = true;
     },
-    closeModal(){
-      this.display = false
-    }
+    closeModal() {
+      this.display = false;
+    },
   },
   mounted: async function () {
     this.getDevices();
@@ -68,10 +78,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.deleteModal{
-  height: 200px;
-  width: 200px;
-  background: #000;
+.modal-overlay {
+  position: fixed;
+  background-color: #000000da;
+}
+.modal {
+  text-align: center;
+  background-color: white;
+  height: 500px;
+  width: 400px;
+  .close {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+    .icon {
+      font-size: 12pt;
+      font-weight: bold;
+    }
+  }
+  h2{
+    font-weight: bold;
+    font-size: 12pt;
+    color: var(--dark);
+  }
+  p{
+    font-size: 10pt;
+  }
 }
 
 .homeContent {

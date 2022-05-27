@@ -87,7 +87,7 @@ main {
 
 .loginContainer {
   width: 50vw;
-  max-width: 400px;
+  max-width: 450px;
   height: 80vh;
 
   img {
